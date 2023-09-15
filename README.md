@@ -1,2 +1,2 @@
-# Postman-API-Fundamentals-Student-Expert-
+# Postman-API-Fundamentals-Student-Expert
 Learn with Postman
