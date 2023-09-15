@@ -1,4 +1,4 @@
-# Postman-API-Fundamentals-Student-Expert
+# Postman-API-Fundamentals-Student-Expert-Journey
 Testing the curl request
 ```curl https://api.github.com/users/postmanlabs```
 
