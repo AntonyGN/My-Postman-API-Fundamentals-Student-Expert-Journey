@@ -226,6 +226,63 @@ Think about why you might not want an API to have completely open endpoints that
 
 There are multiple methods for authorizing a request. Some examples are **Basic Auth** (username and password), **OAuth** (password-less authorization), and **API Keys** (secret strings registered to a developer from an API).
 
+# Getting an API Key
+
+APIs that use API Key auth usually allow developers to sign up in a developer portal, where they will receive a random API Key that can be used to authorize their requests to the API. The API Key allows the API to track who is making calls and how often.  
+
+The Postman Library API v2 uses very light protection and does not require you to register for an API Key. You simply have to know it:
+
+Header name: ``api-key``
+Header value: ``postmanrulz``
+
+As the documentation shows, the Postman Library API v2 requires adding this **header** to any requests for adding, updating and deleting books, since these operations actually change data in the database as opposed to simply reading them.
+
+## Headers
+
+Headers are how we can add **metadata** about our requests, such as authorization information or specify the data type we want to receive in a response. This is different than the actual payload data we send in the body of a request, such as our new book information.
+
+You can think of headers like the outside of an envelope when you send a letter. The envelope has information about delivering the letter, like proof that you've paid for postage. The actual data "payload" is the letter inside the envelope.
+
+# Add the API Key to the request header
+
+1. On your "add a book" request, click the Headers tab
+
+2. In the Headers helper table, add the **key** ``api-key`` with a **value** of ``postmanrulz``
+
+3.  Save your request
+
+4.  Send your request
+
+ ## 🚀 Success!
+Your book was added! Now that your request is properly authorized in the header, you should get a **201 Created** response with a response body that is an object representing your newly added book!
+
+```
+{
+    "id": "a575715c-2832-4fb9-8599-49cfe5a35b9b",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "fiction",
+    "yearPublished": 1960,
+    "checkedOut": false,
+    "isPermanentCollection": false,
+    "createdAt": "2023-09-18T11:02:14.741Z"
+}
+```
+
+Your new book has been assigned a random unique ``id``, and has extra information now such as it's ``checkedOut`` status and when it was added to the library (``createdAt``)
+
+##View your new book
+
+You can now return to your ``get books`` request, add the query parameter ``search`` with a value of the title of the book you added.
+
+Anyone can now see your book when they fetch books!
+
+
+
+
+
+
+
 
 
 
