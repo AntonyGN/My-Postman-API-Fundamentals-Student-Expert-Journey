@@ -96,6 +96,33 @@ You should get a ``200 OK`` response with an array of only fiction books that ar
     },
 ```
 
+# Path Parameters
+
+Another way of passing request data to an API is via path parameters. A path parameter (or "path variable") is a dynamic section of a path, and is often used for IDs and entity names such as usernames. 
+
+## Path parameter syntax
+
+Path parameters come immediately after a slash in the path. For example, the GitHub API allows you to search for GitHub users by providing a username in the path in place of ``{username}`` below:
+
+```GET https://api.github.com/users/{username}```
+
+Making this API call with a value for ``{username}`` will fetch data about that user:
+
+```GET https://api.github.com/users/postmanlabs```
+
+You can have multiple path parameters in a single request, such as this endpoint for getting a user's GitHub code repository:
+
+```GET https://api.github.com/repos/{owner}/{repoName}```
+
+For example, to get information about the newman code repository from postmanlabs:
+
+```GET https://api.github.com/repos/postmanlabs/newman```
+
+
+
+
+
+
 
 
 
