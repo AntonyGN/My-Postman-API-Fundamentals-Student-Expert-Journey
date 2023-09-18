@@ -172,6 +172,64 @@ You can see that Postman has inserted the book ``id`` as a path parameter in pla
 
 If you run into any errors when making API calls, always check the Postman Console and make sure the raw request was sent as you expected.*A common error is adding accidental white space in your query or path parameter values.*
 
+# Sending data with POST
+
+## Task: Add a book
+
+Someone wants to donate a book to the library! 
+
+In this task we will learn how to add a **Body** to a **POST** request in order to submit data to an API.
+
+## Make a POST request
+1.  Hover over your **Postman Library API v2 Collection**, click the three dots icon and select **Add request**. Name you new request **add a book**
+
+2.  Set the request method to **POST** and the request URL to 
+``https://library-api.postmanlabs.com/books``
+
+3.  This endpoint requires adding a **body** to our request to send a payload. Our payload will be a JSON object containing the information about the book we are adding.
+
+Click the **Body** tab of the request and select that data type **raw > JSON**
+
+4. Think of a book you love or have read recently.
+
+Inside the Body editor, add a JSON object with details about the new book's **title**, **author**, **genre** and **yearPublished**.
+
+You can copy this object and **replace the values with details about your book!**
+
+```
+{
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "genre": "fiction",
+  "yearPublished": 1960
+}
+```
+5.  Save your request
+
+6.   Send your request
+
+   ## 😱 Uh-oh! 
+
+The response from the server came back with a status ```401 Unauthorized```. Remember that 400-level errors are client errors, meaning we made a mistake in our request. 
+
+### The body of the response has a message explaining we need to add an api-key to the headers of the request. Let's take care of that next!
+
+
+
+# Task: Add an authorization header
+
+Some APIs require **Authorization** (aka **Auth**) for certain endpoint in order to permit a request.
+
+## Authorization
+
+Think about why you might not want an API to have completely open endpoints that anyone can access publicly. It would allow unauthorized people to access data they shouldn't see, or allow bots to flood an API with thousands of calls per second and shut it down. 
+
+There are multiple methods for authorizing a request. Some examples are **Basic Auth** (username and password), **OAuth** (password-less authorization), and **API Keys** (secret strings registered to a developer from an API).
+
+
+
+
+
 
 
 
