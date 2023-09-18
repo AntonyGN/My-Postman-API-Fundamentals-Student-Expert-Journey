@@ -118,6 +118,49 @@ For example, to get information about the newman code repository from postmanlab
 
 ```GET https://api.github.com/repos/postmanlabs/newman```
 
+# Task: Get a book by id
+
+Someone keeps coming into the library every day asking whether ``Ficciones`` by Jorge Luis Borges is available. 
+
+When you fetched all the books in the library, you may have noticed that each book as a unique ``id`` value. This ``id`` can always be used to identify the book, even if its other properties are changed.
+
+Since this person keeps asking about ``Ficciones``, you've jotted down that the unique ``id`` for this book is ``29cd820f-82f9-4b45-a7f4-0924111b5b89``
+
+(Don't believe me? You can always search for ``Ficciones`` with the search query parameter: ``GET /books?search=ficciones``)
+
+## Get a book by id
+
+According to the API documentation, we can get a specific book by hitting the path ``GET /books/:id``, where we replace ``:id`` with the book's ``id``.
+
+1. Hover on your Postman Library API v2 Collection, click the three dots icon and select ``Add request``. Name your new request ``get book by id``
+
+2. Make sure the request method is set to ``GET``, and paste in this endpoint as the request URL: ```https://library-api.postmanlabs.com/books/:id```
+
+   Postman automatically adds a ``Path Variables`` editor in the ``Params`` tab of the request for any path parameters in the request URL prefixed with a colon :
+
+3. In the ``Params`` tab of the request, paste the ``id`` for ``Ficciones`` (``29cd820f-82f9-4b45-a7f4-0924111b5b89``) as the ``value`` for the parameter named ``id``. *Make sure not to add any whitespace around the id value*.
+
+4. Save your request
+
+5. Send your request
+
+You should get a ``200 OK`` response with a single JSON object that represents the ``Ficciones`` book. At the time of this example, the book is not checked out:
+
+``JSON` response
+
+```
+{
+    "id": "29cd820f-82f9-4b45-a7f4-0924111b5b89",
+    "title": "Ficciones",
+    "author": "Jorge Luis Borges",
+    "genre": "fiction",
+    "yearPublished": 1944,
+    "checkedOut": false,
+    "isPermanentCollection": true,
+    "createdAt": "2022-03-30T00:54:52.606Z"
+}
+```
+
 
 
 
