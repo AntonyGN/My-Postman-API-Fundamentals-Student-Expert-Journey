@@ -41,10 +41,10 @@ JSON (JavaScript Object Notation) response
 }
 ```
 
-## First API request 
+# First API request 
 Using the request ``URL`` to ``GET`` ```https://library-api.postmanlabs.com/books```
 
-Task: Search books by genre
+## Task: Search books by genre
 The API allows us to add query parameters to a ``GET /books`` request to filter the results
 
 ## Get all fiction books
@@ -63,7 +63,47 @@ Let's filter the library catalog to get all the fiction books. We can recycle th
 
 6. You should get a ``200 OK`` response with an array of books objects - but only books with the ``fiction genre!``
 
-   Request ``URL``to Get all fiction books ```https://library-api.postmanlabs.com/books?genre=fiction```
+  Request ``URL``to Get all fiction books ```https://library-api.postmanlabs.com/books?genre=fiction```
+
+# Task: Multiple query parameters
+
+As a librarian you'll need to help visitors find books that are available (not checked out).
+
+Let's add a second query parameter to ``GET /books`` to only return books where the ``checkedOut`` property is false. 
+
+## Add another query parameter
+1. In the same ``get fiction books`` request, in the ``Params`` tab add a second query parameter with ```key checkedOut``` and value ``false``
+
+2. Save your request 
+
+3. Send your request
+
+You should get a ``200 OK`` response with an array of only fiction books that are not checked out, or an empty array [] if there are no fiction books available.
+
+  Request ``URL``to multiple query parameters ```https://library-api.postmanlabs.com/books?genre=fiction&checkedOut=false```
+
+  JSON response 
+  ```
+{
+        "id": "d284914a-4b60-4d9d-b76b-c3ffbe5f6a05",
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "genre": "fiction",
+        "yearPublished": 1960,
+        "checkedOut": false,
+        "isPermanentCollection": false,
+        "createdAt": "2023-09-18T06:50:46.080Z"
+    },
+```
+
+
+
+
+
+
+
+
+   
 
    
 
