@@ -161,6 +161,16 @@ You should get a ``200 OK`` response with a single JSON object that represents t
 }
 ```
 
+# Debugging requests in the Postman Console
+You used Postman's path variable helper in the **Params** tab of the request to add a path variable nicknamed ``:id`` to the request URL in a human-friendly way. Postman replaces ``:id`` with the value you specify for ``id`` in the Path Variables editor.
+
+You can always view the raw request sent to the API by opening the **Postman Console** in the lower left of Postman.
+
+All requests you make and their responses are logged in the Postman Console. Scroll to the bottom to expand the most recent request. 
+
+You can see that Postman has inserted the book ``id`` as a path parameter in place of the ``:id`` placeholder when making the request. Cool!
+
+If you run into any errors when making API calls, always check the Postman Console and make sure the raw request was sent as you expected.*A common error is adding accidental white space in your query or path parameter values.*
 
 
 
