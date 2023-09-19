@@ -332,6 +332,44 @@ Let's add the api-key to our entire collection so that all requests will send th
        Content-Length: 111
    ```
 
+# Introduction to variables and scripting
+
+## Variables in Postman
+
+Postman allows you to save values as variables so that you can:
+
+1. Reuse values to keep your work DRY (Don’t Repeat Yourself)
+
+2. Hide sensitive values like API keys from being shared publicly
+
+In this section we will add variables to our collection to introduce better practices and allow us to make dynamic requests. 
+
+
+## Variable scopes
+
+You can set variables that live at various scopes. Postman will resolve to the value at the nearest and narrowest scope.
+
+In order from broadest to narrowest, these scopes are: **global**, **collection**, **environment**, **data**, and **local**.
+
+We will work with **collection variables** today, which are variables that live at the collection level and be can accessed anywhere inside the collection.
+
+
+## Variable syntax
+
+Once a variable is defined, you can access its value using double curly brace syntax like this:
+
+``{{variableName}}``
+
+In the next section you will learn how to set a variable.
+
+## Task: Set **baseUrl** variable
+
+One way to set a variable is to highlight the input text you'd like to convert into a variable, and follow the "Set as variable" popup instructions. 
+
+## Make a ``baseUrl`` variable
+
+We use the same base URL for all requests to the library API. We can simplify our requests by replacing ``https://library-api.postmanlabs.com`` with a variable called ``{{baseUrl}}``
+
 
 
 
