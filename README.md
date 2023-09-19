@@ -279,6 +279,62 @@ Anyone can now see your book when they fetch books!
 
 After confirming, you can **uncheck** the ``search`` **query parameter** to disable it and Save your request.
 
+# Task: Use Postman Auth instead!
+
+Postman has an Auth helper that makes authorizing requests even easier!
+
+## Delete the ``api-key`` header
+
+Before we use the Postman Auth helper, let's remove the hard-coded header we just added on the **add a book** request.
+
+Hover over the ``api-key`` header in the **Headers** tab and click the **delete** icon at the right to **delete the header**. Save your request.
+
+## Add Auth to the Collection
+
+The Postman Auth helper can help you add authorization at the request, folder or collection level.
+
+Let's add the api-key to our entire collection so that all requests will send the key. 
+
+1. Click on your collection **Postman Library API v2** and select the **Authorization** (or **Auth**) tab
+
+2. Select **API Key** as the auth **Type**
+
+3. Enter the API Key details in the fields below. **Key**: ``api-key``, **Value:** ``postmanrulz``, **Add to: Header**
+
+4. Save the changes to your collection by clicking the floppy disk icon in the upper right (important!)
+
+5. Now all requests inside this collection that use the auth method **Inherit from parent** will have this header attached, and therefore be authorized.
+
+
+## Add a new book
+
+1. Go back to your **add a book** request and **add another book by changing the body in the Body tab**
+
+2. Make sure the Auth method in the **Authorization** tab of your request is set to "Inherit from parent" in order to use the API Key we set at the collection level. This is the default behavior for requests.
+
+3. Save your request and hit Send!
+
+4. Open up the Postman Console in the lower left and you'll see that the API Key has been added as a header ``api-key: postmanrulz``, which is why we were authorized to add a book!
+
+   ```
+   POST https://library-api.postmanlabs.com/books
+     Network
+     Request Headers
+       Content-Type: application/json
+       api-key: postmanrulz
+       User-Agent: PostmanRuntime/7.32.2
+       Accept: */*
+       Cache-Control: no-cache
+       Postman-Token: 9e5c8f57-546b-4d65-8ecd-b3de293e441a
+       Host: library-api.postmanlabs.com
+       Accept-Encoding: gzip, deflate, br
+       Connection: keep-alive
+       Content-Length: 111
+   ```
+
+
+
+
 
 
 
