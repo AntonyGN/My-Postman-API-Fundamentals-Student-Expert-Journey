@@ -370,6 +370,50 @@ One way to set a variable is to highlight the input text you'd like to convert i
 
 We use the same base URL for all requests to the library API. We can simplify our requests by replacing ``https://library-api.postmanlabs.com`` with a variable called ``{{baseUrl}}``
 
+1. Go to the first ``get books`` request in your collection.
+
+2. With your cursor, select the entire base URL of the API (``https://library-api.postmanlabs.com``). Do not include the slash ``/`` after ``.com``.
+
+  Click **Set as variable** to save the base URL to a variable.
+
+3. Click Set as a new variable
+
+4. Name your new variable **baseUrl** and select **Collection** as the scope, then click **Set variable**
+
+   Now that the variable is set, you can access the value anywhere in your collection by typing ``{{baseUrl}}``
+   
+5. Hover over ``{{baseUrl}}``. You will see its current value is set to ``https://library-api.postmanlabs.com``
+
+6. Now you can **send your request** and see that it works just like before! You should get a status ``200 OK`` response with a list of books.
+
+
+## Where are my variables?
+
+You can find Collection variables on your collection.
+
+Click on your collection, then the **Variables** tab. Here you can view and edit your variables.
+
+Note that there are two columns:
+
+**Initial Value** - the value initially set when someone forks or imports your collection. Note that if you share your collection with others they will see this value, so don't put any secrets here!
+
+**Current Value** - Postman always resolves the variable to this value. This is local to your Postman account, and not public. It is good to keep secrets like API Keys ONLY in this column and not include in the Initial Value column.
+
+
+## Update all your requests to use ``{{baseUrl}}``
+
+1. Set all your requests to use ``{{baseUrl}}`` to replace ``https://library-api.postmanlabs.com`` (before the slash ``/``).
+
+2. Be sure to Save each request after the change!
+
+Next you will learn how to set variables automatically, with code!
+
+
+
+
+
+
+
 
 
 
