@@ -562,6 +562,83 @@ The ``id`` variable has been automatically assigned the id of your new book as i
 You can now use ``{{id}}`` anywhere in your collection to access this value! Which will come in handy for what we do next...
 
 
+# PATCH and DELETE
+
+## Task: Checkout your book
+
+Someone wants to check out the book you just added!
+
+As librarian, you will update the library database via the API to mark the book's ``checkedOut`` status from ``false`` to ``true``.
+
+The API documentation shows we can **update a book** by id by making a request (authorized with the API Key) with the updated information to:
+
+```PATCH https://library-api.postmanlabs.com/books/:id```
+
+## Make a request to update the book
+
+1. Hover on your **Postman Library API v2 collection**, click the three dots, and select **Add  request**. Name your new request **checkout a book**
+
+2. Set the request method to **PATCH** and the request URL to ``{{baseUrl}}/books/:id``
+
+3. Set the value of path variable ``id`` to ``{{id}}``.
+
+This will use the value of our collection variable named ``id`` that was set in the script of the **add a book** request
+
+4. Add a **raw JSON** body in the **Body** tab for updating the ``checkedOut`` property to ``true``:
+```
+{ 
+  "checkedOut": true 
+}
+```
+5. Make sure in the **Authorization (Auth)** tab that the Auth type is set to **Inherit from parent**. This will use the API Key set at the collection level on our PATCH request.
+
+6. Save your request
+
+7. Send your request
+
+You should get a ``200 OK`` response that shows the updated data about your book. Notice how ``checkedOut`` is now ``true``
+
+## Your book is updated!
+
+Now if you return to your **get book by id** request, update the id path variable value to ``{{id}}`` , Save and Send, you will see the same updated data!
+
+
+## Task: Delete your book
+
+Oops! The person that checked out your book accidentally lost it... you will need to delete it from the library database.
+
+The API documentation shows how we can delete books with the ``DELETE /books/:id path``
+
+## Make a new request
+
+The ``DELETE`` request has a similar format to the ``PATCH`` request, so let's copy the ``PATCH`` request to make our new request.
+
+1. Hover over your "checkout a book" request, click the three dots icon, then select **Duplicate** to create a copy of the request. Rename your new request **delete a book**
+
+2. Set the request method of the **delete a book** request to ``DELETE``
+
+3. Make sure the request **Body** is empty. This endpoint does not require a body.
+
+4. In the **Params** tab, make sure the path variable id is set to ``{{id}}``
+
+5. Save your request
+
+6. Send your request
+
+   You should get a ``204 No Content`` response from the API. This means the server successfully deleted the book, and won't send any response body back. *Remember: if you ever wonder what a status code means, you can hover on it in Postman for an explanation!*
+
+## Is it really gone?
+
+Without changing anything, try sending your request again.
+
+Since you are sending a request to delete a book with an id that no longer exists, you get a ``404`` error! 
+
+   
+
+
+
+
+
 
 
 
