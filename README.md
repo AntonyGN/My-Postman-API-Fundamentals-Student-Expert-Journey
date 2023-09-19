@@ -495,6 +495,73 @@ I am not code!
 You've written your first script. Next you'll learn how to automatically grab the **id** of your new book and save it as a collection variable.... using code!
 
 
+## Task: Grab the new book id
+
+Saving a value as a variable allows you to use it in other requests. Let's grab the **id** of a newly added book and save it so we can use it in future requests.
+
+## Setting and getting collection variables
+
+The ``pm`` object allows you to set and get collection variables.
+
+To **set** a collection variable use the ``.set()`` method with two parameters: the variable name and the variable value
+
+```pm.collectionVariables.set("variableName", value)```
+
+
+To **get** a collection variable use the ``.get()`` method and specify the name of the variable you want to retrieve:
+
+```pm.collectionVariables.get("variableName")```
+
+## Local variables
+
+We can also store local variables inside our **Tests** script using JavaScript. 
+
+There are two ways to define a variable in JavaScript: using the ``const`` or ``let`` keywords. ``const`` is for variables that won't change value, whereas ``let`` allows you to reassign the value later.
+
+```
+// -- Defining variables with const --
+const myVar = "This variable can't be reassigned"
+console.log(myVar) // => This variable can't be reassigned
+
+// attempt to reassign the value of myVar
+myVar = "foo" 
+//=> [ERROR!] Uncaught TypeError: Assignment to constant variable.
+
+// -- Defining variables with let -- 
+let myVar2 = "I can change!"
+console.log(myVar2) // => I can change!
+
+myVar2 = "See, I changed!"
+console.log(myVar2) // => See, I changed!
+```
+
+## Set the new book id as a variable 
+
+1. In the **Body** tab of the **add a book** request, **change the details to yet another new book to add!**
+
+2. In the **Tests** tab of the **add a book** request, replace the console.log() statement with this code:
+
+   ```
+   const id = pm.response.json().id
+   pm.collectionVariables.set("id", id)
+   ```
+
+First we assign the ``id`` value from our API response to a local ``const`` variable named ``id`` (we use const because this value doesn't change in our script). The second line sets this value to a collection variable called ``id``. 
+
+3. Save your request
+
+4. Send your request.
+
+   When the ``201`` response comes back from the API with you newly created book, the Tests script will run and save the book's ``id`` as a collection variable automatically.
+
+5. View your collection variables by clicking on your **Postman Library API v2 collection**, then the **Variables** tab.
+
+
+The ``id`` variable has been automatically assigned the id of your new book as its Current Value!
+
+You can now use ``{{id}}`` anywhere in your collection to access this value! Which will come in handy for what we do next...
+
+
 
 
 
