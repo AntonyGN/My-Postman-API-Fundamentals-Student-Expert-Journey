@@ -409,6 +409,40 @@ Note that there are two columns:
 Next you will learn how to set variables automatically, with code!
 
 
+## Setting variables programmatically
+
+## Scripting in Postman
+
+Postman gives you the ability to add automations and dynamic behaviors to your collections with scripting.
+
+Any Node.js code in the ``Tests`` tab of a request will be executed after a response comes back from the API.
+
+## The ``pm`` object
+Postman has a **helper object** named ``pm`` that gives you access data about your postman environment, requests, responses, variables and testing utilities. 
+
+For example, you can access the JSON response body from the API with: 
+
+``pm.response.json()``
+
+You can also programmatically get collection variables like the value of baseUrl with:
+
+``pm.collectionVariables.get(“baseUrl”)``
+
+In addition to getting variables you can also set them with ``pm.collectionVariables.set("variableName", "variableValue")`` like this:
+
+``pm.collectionVariables.set(“myVar”, “foo”)``
+
+## Get ready!
+
+In the next task we will use scripting and the ``pm`` object to automatically set a new book's ``id`` as a collection variable so we can use the ``id`` in other requests.
+
+
+
+
+
+
+
+
 
 
 
