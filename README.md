@@ -633,6 +633,29 @@ Without changing anything, try sending your request again.
 
 Since you are sending a request to delete a book with an id that no longer exists, you get a ``404`` error! 
 
+# Generating code
+
+Postman can help you integrate API calls into your applications by **generating code snippets** in various coding languages.
+
+## Generating code snippets
+
+Every request you made has a code generation tab you can access from the code ``</>`` icon in the far right 
+
+Once the code snippet generator pane is open, you can select from a dropdown to generate the API request in common coding languages like Python, JavaScript, C, NodeJS and more. 
+
+For example, we can generate the ``GET /books`` request in ``cURL`` syntax:
+
+```
+curl --location 'https://library-api.postmanlabs.com/books' \
+--header 'api-key: postmanrulz'
+```
+
+If we copy this snippet into the terminal and press Enter, we make the API call and the response body is printed:
+
+It's definitely easier to read API responses as a human in Postman... 😅
+
+Now you know how to give your applications superpowers with APIs 🚀!
+
    
 
 
