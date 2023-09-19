@@ -436,6 +436,70 @@ In addition to getting variables you can also set them with ``pm.collectionVaria
 
 In the next task we will use scripting and the ``pm`` object to automatically set a new book's ``id`` as a collection variable so we can use the ``id`` in other requests.
 
+## Task: Your first script
+
+If you are new to Node.js and JavaScript - have no fear! Node.js is a runtime environment for executing JavaScript code outside of a web browser. 
+
+## Logging data 
+
+In JavaScript, you can print data for a value to the console using this syntax:
+
+```console.log("Hello world!")
+  // => Hello world!
+```
+
+## Comments
+
+In JavaScript you can add comments to your code. Comments are skipped by the interpreter, so you can use them to explain things in your code if you like. 
+
+```// Single line comments start with two slashes. I am not code!
+
+/* You can write multi-line comments by 
+opening and closing with slash and asterisk. 
+I am not code!
+*/
+```
+
+## Add a script to your request
+
+1. In your **add a book** request, change the book data in your **Body** to a new book you like.
+
+2. Open the **Tests** tab of the request
+
+3. Inside the Tests editor, **add this JavaScript** code to log the JSON response from the API:
+
+   ```console.log(pm.response.json())```
+   
+4. Save your request
+
+5. Send your request. This will trigger the script in the Tests tab to run after the response comes back from the API
+
+6. **Open the Postman Console** in the lower left of the window
+
+7. Scroll to the bottom of the logs in the console. You will see your most recent request ``POST`` ``https://library-api.poistmanlabs.com/books``.
+
+   The response data from the API is logged in the console because of the code in our **Tests** tab! You can **expand the data** by clicking on the small arrow to the left
+
+   ```{id: "361da94d-7abd-47a0-b8ce-a983d31ba2fe", title: "Avengers", author: "Marvel"…}
+        id: "361da94d-7abd-47a0-b8ce-a983d31ba2fe"
+        title: "Avengers"
+        author: "Marvel"
+        genre: "Action"
+        yearPublished: 2020
+        checkedOut: false
+        isPermanentCollection: false
+        createdAt: "2023-09-19T07:21:58.353Z"
+   ```
+## Congratulations!
+
+You've written your first script. Next you'll learn how to automatically grab the **id** of your new book and save it as a collection variable.... using code!
+
+
+
+
+
+
+
 
 
 
