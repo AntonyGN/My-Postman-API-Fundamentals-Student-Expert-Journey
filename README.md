@@ -271,11 +271,13 @@ Your book was added! Now that your request is properly authorized in the header,
 
 Your new book has been assigned a random unique ``id``, and has extra information now such as it's ``checkedOut`` status and when it was added to the library (``createdAt``)
 
-##View your new book
+## View your new book
 
 You can now return to your ``get books`` request, add the query parameter ``search`` with a value of the title of the book you added.
 
 Anyone can now see your book when they fetch books!
+
+After confirming, you can **uncheck** the ``search`` **query parameter** to disable it and Save your request.
 
 
 
